@@ -23,7 +23,7 @@ public class Cavallo extends Thread {
                 sleep(lentezza);
             } catch (InterruptedException e) {
                 if (azzoppato) {
-                    System.out.println(" Cavallo " + nome + " è stato AZZOPPATO e si ferma alla posizione " + i);
+                    System.out.println(" Cavallo " + nome + " e' stato AZZOPPATO e si ferma al metro " + i*PASSO);
                     return; // termina la corsa
                 } else {
                     e.printStackTrace();
