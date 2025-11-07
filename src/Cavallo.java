@@ -1,3 +1,7 @@
+/**
+ * La classe Cavallo rappresenta un cavallo che partecipa a una gara.
+ * Estende la classe Thread per simulare il movimento in parallelo.
+ */
 public class Cavallo extends Thread {
     private int lunghezza;
     private String nome;
@@ -5,12 +9,23 @@ public class Cavallo extends Thread {
     private final int PASSO = 5;
     private boolean azzoppato = false;
 
+    /**
+     * Costruttore della classe Cavallo.
+     *
+     * @param nome      Nome del cavallo
+     * @param lentezza  Tempo in millisecondi tra un passo e l'altro
+     * @param lunghezza Lunghezza totale della gara in metri
+     */
     public Cavallo(String nome, int lentezza, int lunghezza) {
         this.nome = nome;
         this.lentezza = lentezza;
         this.lunghezza = lunghezza;
     }
 
+    /**
+     * Metodo eseguito quando il thread viene avviato.
+     * Simula il galoppo del cavallo lungo la pista.
+     */
     @Override
     public void run() {
         System.out.println("Cavallo " + nome + " comincia il suo galoppo!");
@@ -42,11 +57,19 @@ public class Cavallo extends Thread {
         GestoreGaraCavalli.scriviNelFile(nome + " ha terminato la gara!");
     }
 
+    /**
+     * Azzoppa il cavallo, interrompendo il suo thread.
+     */
     public void azzoppa() {
         azzoppato = true;
         this.interrupt();
     }
 
+    /**
+     * Restituisce il nome del cavallo.
+     *
+     * @return nome del cavallo
+     */
     public String getNome() {
         return nome;
     }

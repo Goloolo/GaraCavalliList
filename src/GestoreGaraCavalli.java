@@ -5,10 +5,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * Classe principale che gestisce la simulazione della gara tra cavalli.
+ */
 public class GestoreGaraCavalli {
     static String primo = "";
     static PrintWriter pw;
 
+    /**
+     * Metodo principale che avvia la simulazione della gara.
+     *
+     * @param args argomenti da linea di comando (non utilizzati)
+     */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Random r = new Random();
@@ -25,6 +33,7 @@ public class GestoreGaraCavalli {
 
         ArrayList<Cavallo> listaCavallo = new ArrayList<>();
 
+        // Inserimento dei cavalli
         for (int i = 1; i <= 4; i++) {
             System.out.print("Inserisci il nome del cavallo " + i + ": ");
             String nome = input.nextLine();
@@ -34,10 +43,12 @@ public class GestoreGaraCavalli {
             listaCavallo.add(c);
         }
 
+        // Avvio dei thread cavallo
         for (Cavallo c : listaCavallo) {
             c.start();
         }
 
+        // Thread che azzoppa casualmente i cavalli
         Thread interruptManager = new Thread(() -> {
             while (true) {
                 try {
@@ -57,6 +68,7 @@ public class GestoreGaraCavalli {
 
         interruptManager.start();
 
+        // Attesa della fine della gara
         for (Cavallo c : listaCavallo) {
             try {
                 c.join();
@@ -75,14 +87,29 @@ public class GestoreGaraCavalli {
         pw.close();
     }
 
+    /**
+     * Restituisce il nome del cavallo vincitore.
+     *
+     * @return nome del primo cavallo arrivato
+     */
     public static String getPrimo() {
         return primo;
     }
 
+    /**
+     * Imposta il nome del cavallo vincitore.
+     *
+     * @param primo nome del vincitore
+     */
     public static void setPrimo(String primo) {
         GestoreGaraCavalli.primo = primo;
     }
 
+    /**
+     * Scrive una riga di testo nel file di output.
+     *
+     * @param testo testo da scrivere
+     */
     public static synchronized void scriviNelFile(String testo) {
         if (pw != null) {
             pw.println(testo);
