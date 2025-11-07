@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Cavallo extends Thread {
     private int lunghezza;
     private String nome;
@@ -16,7 +14,7 @@ public class Cavallo extends Thread {
     @Override
     public void run() {
         System.out.println("Cavallo " + nome + " comincia il suo galoppo!");
-        Main.scriviNelFile("Cavallo " + nome + " comincia il suo galoppo!");
+        GestoreGaraCavalli.scriviNelFile("Cavallo " + nome + " comincia il suo galoppo!");
         lunghezza = lunghezza / PASSO;
 
         for (int i = 1; i <= lunghezza; i++) {
@@ -25,7 +23,7 @@ public class Cavallo extends Thread {
             } catch (InterruptedException e) {
                 if (azzoppato) {
                     System.out.println("Cavallo " + nome + " e' stato AZZOPPATO e si ferma al metro " + i * PASSO);
-                    Main.scriviNelFile("Cavallo " + nome + " e' stato AZZOPPATO e si ferma al metro " + i * PASSO);
+                    GestoreGaraCavalli.scriviNelFile("Cavallo " + nome + " e' stato AZZOPPATO e si ferma al metro " + i * PASSO);
                     return;
                 } else {
                     e.printStackTrace();
@@ -33,15 +31,15 @@ public class Cavallo extends Thread {
             }
 
             System.out.println(nome + " cavalca - passo: " + i);
-            Main.scriviNelFile(nome + " cavalca - passo: " + i);
+            GestoreGaraCavalli.scriviNelFile(nome + " cavalca - passo: " + i);
 
-            if (Main.getPrimo().equals("")) {
-                Main.setPrimo(this.nome);
+            if (GestoreGaraCavalli.getPrimo().equals("")) {
+                GestoreGaraCavalli.setPrimo(this.nome);
             }
         }
 
         System.out.println(nome + " ha terminato la gara!");
-        Main.scriviNelFile(nome + " ha terminato la gara!");
+        GestoreGaraCavalli.scriviNelFile(nome + " ha terminato la gara!");
     }
 
     public void azzoppa() {

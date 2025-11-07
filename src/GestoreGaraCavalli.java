@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Main {
+public class GestoreGaraCavalli {
     static String primo = "";
     static PrintWriter pw;
 
@@ -80,7 +80,7 @@ public class Main {
     }
 
     public static void setPrimo(String primo) {
-        Main.primo = primo;
+        GestoreGaraCavalli.primo = primo;
     }
 
     public static synchronized void scriviNelFile(String testo) {
