@@ -15,7 +15,8 @@ public class Cavallo extends Thread {
 
     @Override
     public void run() {
-        System.out.println(" Cavallo " + nome + " comincia il suo galoppo!");
+        System.out.println("Cavallo " + nome + " comincia il suo galoppo!");
+        Main.scriviNelFile("Cavallo " + nome + " comincia il suo galoppo!");
         lunghezza = lunghezza / PASSO;
 
         for (int i = 1; i <= lunghezza; i++) {
@@ -23,27 +24,29 @@ public class Cavallo extends Thread {
                 sleep(lentezza);
             } catch (InterruptedException e) {
                 if (azzoppato) {
-                    System.out.println(" Cavallo " + nome + " e' stato AZZOPPATO e si ferma al metro " + i*PASSO);
-                    return; // termina la corsa
+                    System.out.println("Cavallo " + nome + " e' stato AZZOPPATO e si ferma al metro " + i * PASSO);
+                    Main.scriviNelFile("Cavallo " + nome + " e' stato AZZOPPATO e si ferma al metro " + i * PASSO);
+                    return;
                 } else {
                     e.printStackTrace();
                 }
             }
 
             System.out.println(nome + " cavalca - passo: " + i);
+            Main.scriviNelFile(nome + " cavalca - passo: " + i);
 
-            // se nessuno ha ancora finito, segna il vincitore
             if (Main.getPrimo().equals("")) {
                 Main.setPrimo(this.nome);
             }
         }
 
-        System.out.println( nome + " ha terminato la gara!");
+        System.out.println(nome + " ha terminato la gara!");
+        Main.scriviNelFile(nome + " ha terminato la gara!");
     }
 
     public void azzoppa() {
         azzoppato = true;
-        this.interrupt(); // manda l’interrupt al thread
+        this.interrupt();
     }
 
     public String getNome() {

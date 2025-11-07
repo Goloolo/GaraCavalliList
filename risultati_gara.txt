@@ -1,0 +1,93 @@
+Lunghezza gara: 150 metri
+Cavallo s comincia il suo galoppo!
+Cavallo d comincia il suo galoppo!
+Cavallo a comincia il suo galoppo!
+Cavallo f comincia il suo galoppo!
+a cavalca - passo: 1
+a cavalca - passo: 2
+a cavalca - passo: 3
+a cavalca - passo: 4
+a cavalca - passo: 5
+a cavalca - passo: 6
+a cavalca - passo: 7
+a cavalca - passo: 8
+a cavalca - passo: 9
+a cavalca - passo: 10
+s cavalca - passo: 1
+a cavalca - passo: 11
+a cavalca - passo: 12
+a cavalca - passo: 13
+a cavalca - passo: 14
+a cavalca - passo: 15
+a cavalca - passo: 16
+a cavalca - passo: 17
+a cavalca - passo: 18
+s cavalca - passo: 2
+a cavalca - passo: 19
+a cavalca - passo: 20
+a cavalca - passo: 21
+a cavalca - passo: 22
+a cavalca - passo: 23
+a cavalca - passo: 24
+a cavalca - passo: 25
+a cavalca - passo: 26
+a cavalca - passo: 27
+a cavalca - passo: 28
+a cavalca - passo: 29
+s cavalca - passo: 3
+a cavalca - passo: 30
+a ha terminato la gara!
+s cavalca - passo: 4
+s cavalca - passo: 5
+s cavalca - passo: 6
+s cavalca - passo: 7
+s cavalca - passo: 8
+s cavalca - passo: 9
+d cavalca - passo: 1
+s cavalca - passo: 10
+s cavalca - passo: 11
+s cavalca - passo: 12
+s cavalca - passo: 13
+s cavalca - passo: 14
+s cavalca - passo: 15
+s cavalca - passo: 16
+s cavalca - passo: 17
+s cavalca - passo: 18
+d cavalca - passo: 2
+s cavalca - passo: 19
+s cavalca - passo: 20
+s cavalca - passo: 21
+s cavalca - passo: 22
+s cavalca - passo: 23
+s cavalca - passo: 24
+s cavalca - passo: 25
+s cavalca - passo: 26
+s cavalca - passo: 27
+d cavalca - passo: 3
+s cavalca - passo: 28
+s cavalca - passo: 29
+s cavalca - passo: 30
+s ha terminato la gara!
+d cavalca - passo: 4
+d cavalca - passo: 5
+d cavalca - passo: 6
+d cavalca - passo: 7
+d cavalca - passo: 8
+d cavalca - passo: 9
+d cavalca - passo: 10
+f cavalca - passo: 1
+Cavallo f e' stato AZZOPPATO e si ferma al metro 10
+d cavalca - passo: 11
+d cavalca - passo: 12
+d cavalca - passo: 13
+d cavalca - passo: 14
+d cavalca - passo: 15
+d cavalca - passo: 16
+d cavalca - passo: 17
+d cavalca - passo: 18
+d cavalca - passo: 19
+d cavalca - passo: 20
+Cavallo d e' stato AZZOPPATO e si ferma al metro 105
+
+Vincitore: a
+Gara terminata!
