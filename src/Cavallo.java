@@ -67,7 +67,6 @@ public class Cavallo extends Thread {
 
     /**
      * Restituisce il nome del cavallo.
-     *
      * @return nome del cavallo
      */
     public String getNome() {

@@ -4,16 +4,28 @@ import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * Classe principale che gestisce la simulazione della gara tra cavalli.
+ * Permette di scegliere un file di output tramite JFileChooser
+ * e di salvare i risultati della gara.
  */
 public class GestoreGaraCavalli {
+    /** Nome del cavallo vincitore */
     static String primo = "";
+    /** Writer per scrivere su file */
     static PrintWriter pw;
 
     /**
      * Metodo principale che avvia la simulazione della gara.
+     * - Chiede all'utente la lunghezza della gara
+     * - Chiede i dati dei cavalli
+     * - Avvia i thread dei cavalli
+     * - Gestisce un thread che può azzoppare i cavalli
+     * - Scrive i risultati su file scelto dall'utente
      *
      * @param args argomenti da linea di comando (non utilizzati)
      */
@@ -21,12 +33,26 @@ public class GestoreGaraCavalli {
         Scanner input = new Scanner(System.in);
         Random r = new Random();
 
-        try {
-            pw = new PrintWriter(new FileWriter("risultati_gara.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
+        // Apertura finestra di selezione file
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Seleziona il file di output");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("File di testo", "txt"));
+
+        int scelta = fileChooser.showSaveDialog(null);
+        if (scelta == JFileChooser.APPROVE_OPTION) {
+            File fileSelezionato = fileChooser.getSelectedFile();
+            try {
+                pw = new PrintWriter(new FileWriter(fileSelezionato));
+            } catch (IOException e) {
+                e.printStackTrace();
+                return;
+            }
+        } else {
+            System.out.println("Nessun file selezionato. Programma terminato.");
+            return;
         }
 
+        // Inserimento lunghezza gara
         System.out.print("Inserisci la lunghezza della gara (in metri): ");
         int lunghezza = Integer.parseInt(input.nextLine());
         scriviNelFile("Lunghezza gara: " + lunghezza + " metri");
@@ -89,7 +115,6 @@ public class GestoreGaraCavalli {
 
     /**
      * Restituisce il nome del cavallo vincitore.
-     *
      * @return nome del primo cavallo arrivato
      */
     public static String getPrimo() {
@@ -98,7 +123,6 @@ public class GestoreGaraCavalli {
 
     /**
      * Imposta il nome del cavallo vincitore.
-     *
      * @param primo nome del vincitore
      */
     public static void setPrimo(String primo) {
@@ -107,7 +131,6 @@ public class GestoreGaraCavalli {
 
     /**
      * Scrive una riga di testo nel file di output.
-     *
      * @param testo testo da scrivere
      */
     public static synchronized void scriviNelFile(String testo) {
